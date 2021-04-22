@@ -1,34 +1,107 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[![Author](https://img.shields.io/badge/author-marioandre01-61dafb?style=flat-square)](https://github.com/marioandre01)
+[![Languages](https://img.shields.io/github/languages/count/marioandre01/podcastr-next-nlw5?color=%2361dafb&style=flat-square)](#)
+[![Stars](https://img.shields.io/github/stars/marioandre01/podcastr-next-nlw5?color=61dafb&style=flat-square)](https://github.com/marioandre01/podcastr-next-nlw5/stargazers)
+[![Forks](https://img.shields.io/github/forks/marioandre01/podcastr-next-nlw5?color=%2361dafb&style=flat-square)](https://github.com/marioandre01/podcastr-next-nlw5/network/members)
+[![Contributors](https://img.shields.io/github/contributors/marioandre01/podcastr-next-nlw5?color=61dafb&style=flat-square)](https://github.com/marioandre01/podcastr-next-nlw5/graphs/contributors)
+[![Licence](https://img.shields.io/github/license/marioandre01/podcastr-next-nlw5?color=%2361dafb&style=flat-square)](https://github.com/marioandre01/podcastr-next-nlw5/blob/master/LICENCE.md)
 
-## Getting Started
 
-First, run the development server:
+<h1 align="center">
+  <!-- <img alt="moveit" title="moveit" src="public/logo-moveit.png" /> -->
+  <br>
+  podcastr-next-nlw5
+</h1>
+
+<p align="center"> 
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-executando-a-aplicação">Executando a aplicação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#gear-contribuição">Contribuição</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licença">Licença</a>
+</p>
+
+## 💻 Projeto
+
+Este projeto está sendo desenvolvido durante a [5º edição do evento Next Level Week - NLW-05](https://nextlevelweek.com/) da [Rocketseat](https://rocketseat.com.br/) na trilha de ReactJS que está ocorrendo entre os dias 19 a 25 de Abril. No qual foi ministrado pelo instrutor Diego Fernandes. Para essa imersão foi proposto fazer o **Podcastr**, que é uma aplicação...
+
+O resultado da aplicação pode ser acessado através da seguinte URL: 
+<!-- [https://nlw-04-moveit-next-js.vercel.app/](https://nlw-04-moveit-next-js.vercel.app/) -->
+
+
+## 📋 Tecnologias
+
+O projeto foi desenvolvido com as seguintes tecnologias:
+
+- [React](https://reactjs.org/)
+- [Next.JS](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Sass](https://sass-lang.com/)
+
+## 🎨 Layout
+
+### 💻 Web 
+
+<!-- <p align="center"> -->
+  <!-- <img alt="Move.it web" title="Move.it web" src="public/moveit_tela01.png" width="800px"> -->
+  <!-- <img alt="Move.it web" title="Move.it web" src="public/moveit_tela02.png" width="800px"> -->
+<!-- </p> -->
+
+<!-- ### 📱 Mobile  -->
+<!-- <p align="center">
+  <img alt="Move.it mobile" title="Move.it mobile" src="img/onePiece_quiz_tela_mobile.png" width="250px">
+</p> -->
+
+## 💻 Executando a aplicação
+
+### :octocat: Clonando o Repositório
 
 ```bash
-npm run dev
-# or
-yarn dev
+$ git clone https://github.com/marioandre01/podcastr-next-nlw5.git
+
+# entre na pasta do projeto
+$ cd podcastr-next-nlw5
+```
+### 💻 Executando a aplicação
+
+Instale as dependências
+
+```bash
+
+# Com yarn
+$ yarn
+
+# ou pelo npm
+$ npm install
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Execute a aplicação (inicie o servidor)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+# Com yarn
+$ yarn dev
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# ou pelo npm
+$ npm run dev
 
-## Learn More
+```
+Agora acesse **localhost:3000** no seu navegador.
 
-To learn more about Next.js, take a look at the following resources:
+## :gear: Contribuição
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Para contribuir com esse projeto faça os seguintes passos:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Faça um fork desse repositório;
+- Crie uma branch com a sua feature: `git checkout -b minha-feature`;
+- Faça commit das suas alterações: `git commit -m 'feat: Minha nova feature'`;
+- Faça push para a sua branch: `git push origin minha-feature`.
 
-## Deploy on Vercel
+## :memo: Licença
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+
