@@ -1,19 +1,27 @@
-// SPA - Single Page Application
-// SSR - Server Side Rendering
-// SSG - Static Site Generation
+import { GetStaticProps } from 'next';
+import { format, parseISO } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
+import { api } from '../services/api';
+import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
 
-import { useEffect } from "react"
+type Episodes = {
+  id: string;
+  title: string;
+  thumbnail: string;
+  description: string;
+  members: string;
+  duration: number;
+  durationAsString: string;
+  url: string;
+  publishedAt: string
+  //... 
+}
 
-export default function Home(props) {
+type HomeProps = {
+  episodes: Episodes[];
+}
 
-  // console.log(props.episodes);
-
-  // Acesso a uma API modelo SPA
-  // useEffect(() => {
-  //   fetch('http://localhost:3333/episodes')
-  //     .then(response => response.json())
-  //     .then(data => console.log(data))
-  // }, []);
+export default function Home(props: HomeProps) {
 
   return (
     <div>
@@ -24,36 +32,37 @@ export default function Home(props) {
   )
 }
 
-// Acesso a uma API modelo SSR
-//Para fazer SSR no Next, basta que em qualquer arquivo da pasta "pages" seja exportado a função "getServerSideProps()"
-//Só de expotar uma função com o nome "getServerSideProps" o Next já vai entender que ele deve executar primeiro essa função
-//antes de exibir o conteudo da página para o usuário final onde esta a função "getServerSideProps"
-
-// export async function getServerSideProps() {
-//   const response = await fetch('http://localhost:3333/episodes')
-//   const data = await response.json();
-
-//   return {
-//     props: {
-//       episodes: data,
-//     }
-//   }
-// }
-
-//no return deve-se colocar a palavra "props", o nome episodes é escolhido pelo dev, pode ser outro, depois diz qual dado se quer retornar, no caso "data"
-
-// Acesso a uma API modelo SSG
+// Acesso a uma API modelo SSG - Static Site Generation
 //Para fazer SSG no Next, basta que em qualquer arquivo da pasta "pages" seja exportado a função "getStaticProps()"
 //Só de expotar uma função com o nome "getStaticProps" o Next já vai entender que ele deve executar primeiro essa função
 //antes de exibir o conteudo da página para o usuário final onde esta a função "getStaticProps"
+export const getStaticProps: GetStaticProps = async () => {
+  const { data } = await api.get('/episodes', {
+    params: {
+      _limit: 12,
+      _sort: 'published_at',
+      _order: 'desc'
+    }
+  })
 
-export async function getStaticProps() {
-  const response = await fetch('http://localhost:3333/episodes')
-  const data = await response.json();
+  const episodes = data.map(episode => {
+    return {
+      id: episode.id,
+      title: episode.title,
+      thumbnail: episode.thumbnail,
+      members: episode.members,
+      publishedAt: format(parseISO(episode.published_at), 'd MMM yy', { locale: ptBR }),
+      duration: Number(episode.file.duration),
+      durationAsString: convertDurationToTimeString(Number(episode.file.duration)),
+      description: episode.description,
+      url: episode.file.url,
+    };
+  })
+
 
   return {
     props: {
-      episodes: data,
+      episodes,
     },
     revalidate: 60 * 60 * 8, //60 segundos * 60 = 3600 segundos(1 hora) * 8 = 8 horas
     //a cada 8 horas quando uma pessoa acessar essa página, uma nova versão dessa página será gerada, com isso uma nova chamada a API vai ser feita
@@ -61,6 +70,7 @@ export async function getStaticProps() {
   }
 }
 
+//no return deve-se colocar a palavra "props", o nome episodes é escolhido pelo dev, pode ser outro, depois diz qual dado se quer retornar, no caso "data"
 //revalidate - recebe um numero em segundos que representa de quanto em quanto tempo se quer gerar uma nova versão dessa página
 
 //Para testar deve-se simular o projeto ja em produção para isso fazer "yarn build" para contruir o projeto em produção
