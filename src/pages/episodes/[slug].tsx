@@ -64,10 +64,31 @@ export default function Episode({ episode }: EpisodeProps) {
   )
 }
 
+//getStaticPaths - Metodo obrigatorio em toda rota que esta usando geração estática "getStaticProps" e que tem parâmetros dinâmicos, que tem colchetes no nome do arquivo, no caso esse arquivo [slug].tsx
+//Toda rota que tem o colchetes e estiver usando geração estática "getStaticProps", tem que colocar o método getStaticPaths
+//fallback: true - roda a requisição no client (front-end)
+//fallback: 'blocking' - roda a requisição no next.js(node.js)
 export const getStaticPaths: GetStaticPaths = async () => {
+
+  const { data } = await api.get('/episodes', {
+    params: {
+      _limit: 2,
+      _sort: 'published_at',
+      _order: 'desc'
+    }
+  })
+
+  const paths = data.map(episode => {
+    return {
+      params: {
+        slug: episode.id
+      }
+    }
+  })
+
   return {
-    paths: [],
-    fallback: 'blocking'
+    paths, // colocar quais páginas se quer que sejam geradas estáticamente
+    fallback: 'blocking' //Incremental static regeneration
   }
 }
 
