@@ -28,7 +28,8 @@ export function Player() {
     playNext,
     playPrevious,
     hasPrevious,
-    hasNext
+    hasNext,
+    clearPlayerState
   } = usePlayer();
 
   //Dispara essa função toda vez que "isPlaying" tiver seu valor alterado
@@ -54,6 +55,20 @@ export function Player() {
     audioRef.current.addEventListener('timeupdate', () => {
       setProgress(Math.floor(audioRef.current.currentTime)); //seta o progresso com o tempo atual do tempo do áudio
     })
+  }
+
+  function handleSeek(amount: number) {
+    audioRef.current.currentTime = amount; //retorna o tempo atual do player, defini-se o tempo escolhido pelo slider de progresso do áudio
+
+    setProgress(amount); // seta o progresso para mover o slider de progresso
+  }
+
+  function handleEpisodeEnded() {
+    if (hasNext) {
+      playNext();
+    } else {
+      clearPlayerState();
+    }
   }
 
   const episode = episodeList[currentEpisodeIndex];
@@ -93,6 +108,7 @@ export function Player() {
               <Slider
                 max={episode.duration} //duração maxima que o slider pode chegar, retorna a duração em segundos
                 value={progress} //value - o valor que o slider já progrediu
+                onChange={handleSeek} // o que acontece quando se arrasta a bolinha do slider de progresso
                 trackStyle={{ backgroundColor: '#04d361' }}
                 railStyle={{ backgroundColor: '#9f75ff' }}
                 handleStyle={{ borderColor: '#04d361', borderWidth: 4 }}
@@ -110,6 +126,7 @@ export function Player() {
             src={episode.url}
             ref={audioRef}
             autoPlay
+            onEnded={handleEpisodeEnded} // função executada quando o audio chega no final
             loop={isLooping}
             onPlay={() => setPlayingState(true)}
             onPause={() => setPlayingState(false)}
