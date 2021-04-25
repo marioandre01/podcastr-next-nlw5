@@ -26,7 +26,7 @@
 Este projeto está sendo desenvolvido durante a [5º edição do evento Next Level Week - NLW-05](https://nextlevelweek.com/) da [Rocketseat](https://rocketseat.com.br/) na trilha de ReactJS que ocorreu entre os dias 19 a 25 de Abril. No qual foi ministrada pelo instrutor Diego Fernandes. Para essa imersão foi proposto fazer o **Podcastr**, que é uma plataforma construída para transmissão de podcast.
 
 O resultado da aplicação pode ser acessado através da seguinte URL: 
-<!-- [https://nlw-04-moveit-next-js.vercel.app/](https://nlw-04-moveit-next-js.vercel.app/) -->
+[https://podcastr-next-nlw5.vercel.app/](https://podcastr-next-nlw5.vercel.app/)
 
 
 ## 📋 Tecnologias
