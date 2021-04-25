@@ -11,7 +11,9 @@ type Episode = {
 type PlayerContextData = {
   episodeList: Episode[];
   currentEpisodeIndex: number;
+  isPlaying: boolean;
   play: (episode: Episode) => void;
+  togglePlay: () => void;
 }
 
 //{} as PlayerContextData - passa um objeto vazio e simula e faz uma tipagem meio forçada dizendo que ele é do tipo PlayerContextData 
