@@ -12,7 +12,13 @@ export function Player() {
   // referencia a tag audio, para poder usar métodos dela
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  const { episodeList, currentEpisodeIndex, isPlaying, togglePlay } = useContext(PlayerContext);
+  const {
+    episodeList,
+    currentEpisodeIndex,
+    isPlaying,
+    togglePlay,
+    setPlayingState
+  } = useContext(PlayerContext);
 
   //Dispara essa função toda vez que "isPlaying" tiver seu valor alterado
   useEffect(() => {
@@ -81,6 +87,8 @@ export function Player() {
             src={episode.url}
             ref={audioRef}
             autoPlay
+            onPlay={() => setPlayingState(true)}
+            onPause={() => setPlayingState(false)}
           />
         )}
 
