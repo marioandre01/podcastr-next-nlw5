@@ -1,11 +1,11 @@
 
-import { useContext, useEffect, useRef } from 'react';
-import { PlayerContext } from '../../contexts/PlayerContext';
+import { useEffect, useRef } from 'react';
+import { usePlayer } from '../../contexts/PlayerContext';
 import styles from './styles.module.scss';
 import Image from 'next/image';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css'; //importar o ccs do rc-slider
-import Episode from '../../pages/episodes/[slug]';
+
 
 export function Player() {
 
@@ -22,7 +22,7 @@ export function Player() {
     playPrevious,
     hasPrevious,
     hasNext
-  } = useContext(PlayerContext);
+  } = usePlayer();
 
   //Dispara essa função toda vez que "isPlaying" tiver seu valor alterado
   useEffect(() => {

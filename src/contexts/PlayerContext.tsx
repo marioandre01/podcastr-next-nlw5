@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode } from 'react'; //ReactNode que vem de dentro do própio react, é uma tipagem
+import { createContext, useState, ReactNode, useContext } from 'react'; //ReactNode que vem de dentro do própio react, é uma tipagem
 
 type Episode = {
   title: string;
@@ -90,4 +90,8 @@ export function PlayerContextProvider({ children }: PlayerContextProviderProps) 
       { children}
     </PlayerContext.Provider>
   )
+}
+
+export const usePlayer = () => {
+  return useContext(PlayerContext);
 }
