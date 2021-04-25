@@ -7,7 +7,7 @@
 
 
 <h1 align="center">
-  <!-- <img alt="moveit" title="moveit" src="public/logo-moveit.png" /> -->
+  <img alt="moveit" title="moveit" src="public/logo.svg" />
   <br>
   podcastr-next-nlw5
 </h1>
@@ -23,7 +23,7 @@
 
 ## 💻 Projeto
 
-Este projeto está sendo desenvolvido durante a [5º edição do evento Next Level Week - NLW-05](https://nextlevelweek.com/) da [Rocketseat](https://rocketseat.com.br/) na trilha de ReactJS que está ocorrendo entre os dias 19 a 25 de Abril. No qual foi ministrado pelo instrutor Diego Fernandes. Para essa imersão foi proposto fazer o **Podcastr**, que é uma aplicação...
+Este projeto está sendo desenvolvido durante a [5º edição do evento Next Level Week - NLW-05](https://nextlevelweek.com/) da [Rocketseat](https://rocketseat.com.br/) na trilha de ReactJS que ocorreu entre os dias 19 a 25 de Abril. No qual foi ministrada pelo instrutor Diego Fernandes. Para essa imersão foi proposto fazer o **Podcastr**, que é uma plataforma construída para transmissão de podcast.
 
 O resultado da aplicação pode ser acessado através da seguinte URL: 
 <!-- [https://nlw-04-moveit-next-js.vercel.app/](https://nlw-04-moveit-next-js.vercel.app/) -->
@@ -37,15 +37,20 @@ O projeto foi desenvolvido com as seguintes tecnologias:
 - [Next.JS](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Sass](https://sass-lang.com/)
+- Axios
+- date-fns
+- rc-slider
 
 ## 🎨 Layout
 
 ### 💻 Web 
 
-<!-- <p align="center"> -->
-  <!-- <img alt="Move.it web" title="Move.it web" src="public/moveit_tela01.png" width="800px"> -->
-  <!-- <img alt="Move.it web" title="Move.it web" src="public/moveit_tela02.png" width="800px"> -->
-<!-- </p> -->
+<p align="center">
+  <img alt="Podcastr web" title="Podcastr web" src="public/podcastr-tela01.png" width="800px">
+  <img alt="Podcastr web" title="Podcastr web" src="public/podcastr-tela02.png" width="800px">
+  <img alt="Podcastr web" title="Podcastr web" src="public/podcastr-tela03.png" width="800px">
+</p>
+</p>
 
 <!-- ### 📱 Mobile  -->
 <!-- <p align="center">
@@ -62,30 +67,68 @@ $ git clone https://github.com/marioandre01/podcastr-next-nlw5.git
 # entre na pasta do projeto
 $ cd podcastr-next-nlw5
 ```
-### 💻 Executando a aplicação
+### 💻 Executando a aplicação - Cenário de desenvolvimento
 
 Instale as dependências
 
 ```bash
-
 # Com yarn
 $ yarn
 
 # ou pelo npm
 $ npm install
+```
 
+Execute o servidor backend (API) fake
+```bash
+$ yarn server
 ```
 
 Execute a aplicação (inicie o servidor)
 
 ```bash
-
 # Com yarn
 $ yarn dev
 
 # ou pelo npm
 $ npm run dev
+```
+Agora acesse **localhost:3000** no seu navegador.
 
+### 💻 Executando a aplicação - Simular Cenário de produção com Static Site Generation (SSG)
+
+Instale as dependências
+
+```bash
+# Com yarn
+$ yarn
+
+# ou pelo npm
+$ npm install
+```
+
+Execute o servidor backend (API) fake
+```bash
+$ yarn server
+```
+
+Build a aplicação
+
+```bash
+# Com yarn
+$ yarn build
+
+# ou pelo npm
+$ npm build
+```
+
+Execute a aplicação
+```bash
+# Com yarn
+$ yarn start
+
+# ou pelo npm
+$ npm start
 ```
 Agora acesse **localhost:3000** no seu navegador.
 
